@@ -1,7 +1,5 @@
 name: 同步heco-info
 on:
-  schedule:
-    - cron: "*/10 * * * *"
   workflow_dispatch:
   watch:
     types: started
