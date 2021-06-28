@@ -25,3 +25,15 @@ jobs:
           source_branch: "main"
           destination_branch: "page"
           github_token: ${{ github.event.client_payload.PAT || secrets.PAT }}
+      - name: branch -> Page
+        uses: actions/checkout@v2
+        with:
+          ref: page    
+      - name: rename CNAME
+        run: |
+          echo 'info.mdex.co' > ./CNAME
+      - name: push CNAME
+        uses: EndBug/add-and-commit@v7
+        with:
+          message: 'update CNAME' 
+          branch: page     
