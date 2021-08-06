@@ -91,6 +91,7 @@ async function subscribe() {
     for (const info of mapList) {
         if (info.platform && info.platform.token_address.toLowerCase().includes('0x') && token_info_list[info.platform.token_address.toLowerCase()]) {
             if(!cmcFileData[info.platform.token_address.toLowerCase()]) {
+                console.log('get new token', info)
                 lastCmcMap[info.platform.token_address.toLowerCase()] = info.slug
             }
             // 清理当前token
